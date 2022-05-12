@@ -5,6 +5,7 @@ import Home from "./components/home/HomeContainer"
 import LoginSignUpPage from "./components/loginSignUp/LoginSignUpPage"
 import DiscussionBoard from "./components/discussionBoard/DiscussionBoard"
 import Comments from "./components/commentsPage/Comments"
+import Footer from './components/Footer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/discussionBoard" element={<DiscussionBoard/>}/>
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
       </Routes>
+      <Footer />
     </div>
   );
 }
