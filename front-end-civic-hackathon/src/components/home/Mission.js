@@ -7,8 +7,8 @@ function Mission(){
             <p class="lead ">
             Inform the youth of underprivileged areas of free educational opportunities by providing a platform that allows people to share free educational alternatives to college.
             </p>
+            <img src="http://indigoyogadayton.com/wp-content/uploads/2013/10/gratitude.jpg" width="40%"class="rounded mx-auto d-block" alt="..."></img>
             </div>
-            
         </div>
     )
 }
