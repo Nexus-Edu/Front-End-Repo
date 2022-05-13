@@ -1,7 +1,9 @@
+import Mission from "./Mission"
+ 
 function HomeContainer(){
     return(
         <div>
-            home container  
+            <Mission/>
         </div>
     )
 }
