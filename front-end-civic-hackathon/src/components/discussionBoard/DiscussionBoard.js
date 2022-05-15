@@ -1,8 +1,15 @@
+import Post from './Post'
+
 function DiscussionBoard(){
     return(
-        <div>
-            discussionBoard page 
-        </div>
+        <ul>
+            <Post/>
+            {/* <Post/>/ */}
+
+        </ul>
+            // <Post/>
+
+        // </div>
     )
 }
 
