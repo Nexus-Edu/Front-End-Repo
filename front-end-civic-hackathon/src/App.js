@@ -22,7 +22,7 @@ function App() {
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
       </Routes>
       <footer>
-        {/* <Footer/> */}
+        <Footer/>
       </footer>
     </div>
   );
