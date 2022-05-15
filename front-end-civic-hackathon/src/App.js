@@ -12,14 +12,18 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <div className="App">
+      <header>
       <NavBar/>
+      </header>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/loginSignUp" element={<LoginSignUpPage/>}/>
         <Route path="/discussionBoard" element={<DiscussionBoard/>}/>
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
       </Routes>
-      {/* <Footer /> */}
+      <footer>
+        {/* <Footer/> */}
+      </footer>
     </div>
   );
 }
