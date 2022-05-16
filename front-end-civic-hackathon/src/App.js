@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from "./components/home/HomeContainer"
@@ -7,6 +6,9 @@ import DiscussionBoard from "./components/discussionBoard/DiscussionBoard"
 import Comments from "./components/commentsPage/Comments"
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import "bootstrap/dist/css/bootstrap.min.css"
+
 
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
       </Routes>
       <footer>
-        <Footer/>
+        {/* <Footer/> */}
       </footer>
     </div>
   );
