@@ -10,7 +10,7 @@ function Post(props) {
                         <div>
                             <img src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} width="50" />
                         </div>
-                        <h6 class="card-subtitle mb-2">{name} @ user1234</h6>
+                        <h6 class="card-subtitle mb-2">{name || "example"} @ user1234</h6>
                     </div>
 
                     <div>

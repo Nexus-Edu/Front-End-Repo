@@ -1,3 +1,6 @@
+import Post from "../discussionBoard/Post"
+import CommentCard from "./CommentCard"
+import MakeCommentModel from "./MakeCommentModel"
 
 /// a few things that need to get built out
 /*
@@ -20,7 +23,12 @@ function Comments(){
 
     return(
         <div>
-            
+            <Post/>
+            <MakeCommentModel/>
+            {/* this compnet will take in info about the post and render it at the top of the page*/}
+            <CommentCard/>
+            <CommentCard/>
+            <CommentCard/>
             comments page 
         </div>
     )
