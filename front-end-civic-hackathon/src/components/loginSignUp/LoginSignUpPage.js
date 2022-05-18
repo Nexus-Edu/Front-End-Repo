@@ -1,8 +1,12 @@
+import Login from "./Login"
+import Signup from "./Signup"
+
 function loginSignUp(){
     return(
-        <div>
-            log in/ sign up page
-            {/* this will house all commponetns related to thsi page   */}
+        <div className="container">
+            <Login />
+            <hr />
+            <Signup />
         </div>
     )
 }
