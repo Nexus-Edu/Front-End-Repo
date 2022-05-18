@@ -1,0 +1,32 @@
+/* LoginSignUpPage */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(37, 37, 37);
+    padding: 25px;
+}
+
+
+/* Login & Signup Cards*/
+.card {
+    display: flex; 
+    flex-direction: column;
+    border: 10px solid #000;
+    padding: 25px;
+    margin-right: 25px;
+}
+
+.card * {
+    margin-top: 10px;
+}
+
+.card-input {
+    max-width: fit-content;
+}
+
+.card-btn {
+    display: flex;
+    /* justify-content: center; */
+}
