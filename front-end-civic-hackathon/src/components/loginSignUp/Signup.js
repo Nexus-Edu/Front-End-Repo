@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../LoginSignUp.css'
 import Context from "../../context/Context"
-import { useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 
 export default function Signup() {
 // Holds the state of the sign up form
@@ -25,6 +25,10 @@ export default function Signup() {
     })
   }
   console.log(state)
+
+  // const signUpInformation = createContext(state);
+  // console.log(signUpInformation)
+
 
 
   return (
