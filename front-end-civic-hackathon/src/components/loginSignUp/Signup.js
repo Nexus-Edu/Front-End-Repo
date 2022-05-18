@@ -1,24 +1,10 @@
 import React from 'react'
 import '../../LoginSignUp.css'
 import Context from "../../context/Context"
-import { useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 
 export default function Signup() {
-  // const { setUserName, UserName, setPassword, Password, setEmail, Email } = useContext(Context)
-
-  // const { setFirstName, FirstName, setLastName, LastName, setEmail, Email, setUserName, UserName, setPassword, Password } = useContext(Context);
-  const [UserName, setUserName] = useState("")
-  const [Password, setPassword] =  useState("")
-  const [Email, setEmail] = useState("")
-  const [FirstName, setFirstName] = useState("")
-  const [LastName, setLastName] = useState("")
-
-  // const [state, setState] = useState({
-  //   UserNameInput: "",
-  //   PasswordInput: "",
-  //   EmailInput: "",
-  // })
-
+// Holds the state of the sign up form
   const [state, setState] = useState({
     FirstNameInput: "",
     LastNameInput: "",
@@ -27,44 +13,29 @@ export default function Signup() {
     PasswordInput: ""
   })
 
-  // const handleSubmit = (e) => {
-
-  //   e.preventDefault()
-  //   setUserName(e.target.UserName.value)
-  //   setPassword(e.target.Password.value)
-  //   setEmail(e.target.Email.value)
-  //   setState({
-  //     UserNameInput: UserName,
-  //     PasswordInput: Password,
-  //     EmailInput: Email
-  //   })
-  //   console.log(state)
-  // }
-
   const handleSubmit = (e) => {
 
     e.preventDefault()
-    setFirstName(e.target.FirstName.value)
-    setLastName(e.target.LastName.value)
-    setEmail(e.target.Email.value)
-    setUserName(e.target.UserName.value)
-    setPassword(e.target.Password.value)
     setState({
-      FirstNameInput: FirstName,
-      LastNameInput: LastName,
-      EmailInput: Email,
-      UserNameInput: UserName,
-      PasswordInput: Password
+      FirstNameInput: e.target.FirstName.value,
+      LastNameInput: e.target.LastName.value,
+      EmailInput: e.target.Email.value,
+      UserNameInput: e.target.UserName.value,
+      PasswordInput: e.target.Password.value
     })
-    console.log(state)
   }
+  console.log(state)
+
+  // const signUpInformation = createContext(state);
+  // console.log(signUpInformation)
+
 
 
   return (
     <form onSubmit={handleSubmit}>
 
-      <div className="card">
         {/* {console.log(state)} */}
+      <div className="card">
         {/* Card Heading */}
         <h2>Sign Up:</h2>
 
