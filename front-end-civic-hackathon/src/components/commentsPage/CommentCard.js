@@ -4,7 +4,7 @@ import {Card} from 'react-bootstrap'
 // align-items: self-end;
 //this is the style that is needed for the image and the name to render side by side. 
 
-function CommentCard() {
+function CommentCard(name, username, comment) {
     return (
         <>
             <div class="card">
