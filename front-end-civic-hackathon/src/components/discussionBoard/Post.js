@@ -1,6 +1,11 @@
+import Context from "../../context/Context"
+import { useContext } from "react"
+import { Button } from "reactstrap"
+
+
 function Post(props) {
     const {name, profilePic, message, hashtag, date, username} = props
-
+    const { userInfo } = useContext(Context)
     return (
         <div class="card">
             <div class="card-body">

@@ -1,15 +1,24 @@
 import Post from './Post'
 import {Link} from "react-router-dom"
+import Context from "../../context/Context"
+import { useContext, useEffect, useState } from "react"
+import { Button } from "reactstrap"
 
 
-function PostUl(){
-    const names = ["leo","ana","cc","mark","zo","jah"]
+
+function PostUl(props){
+    const { array } = props
+    const {userInfo} = useContext(Context)
+    console.log(array)
     return(
         <ul>{
-            names.map((name, index) => <li  key={index}>
-                <Link to={`/discussionBoard/${index}`}> 
-                <Post name={name}/>
-                </Link> 
+            array.map((post) => <li  key={post.id}>
+                <Link to={`/discussionBoard/${post.id}`}> 
+                <Post name={post.name} profilePic={post.profile_pic} message={post.message} hashtag={post.hashtag} date={post.date} username={post.username}/>
+                </Link>
+                {userInfo !== post.username ? <></>: <Button onClick={()=>{
+                    
+                }}>delete</Button>} 
                 </li>)
         }</ul>
     )
