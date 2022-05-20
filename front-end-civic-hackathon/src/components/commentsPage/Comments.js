@@ -2,6 +2,9 @@ import Post from "../discussionBoard/Post"
 import CommentCard from "./CommentCard"
 import MakeCommentModel from "./MakeCommentModel"
 import CommentsUL from "./CommentsUL"
+import { useParams } from "react-router-dom";
+import {useState, useEffect, useContext} from "react"
+import Context from "../../context/Context";
 
 /// a few things that need to get built out
 /*
@@ -11,25 +14,34 @@ import CommentsUL from "./CommentsUL"
 - need to build out a back to comments button
 */
 
-
-/*
-logic need for this page -> 
--a way to render a spesific post -> the one from the params id.
--render all the comments associated with that post using the card componet
--a button to add a comment
--> way to show that post that comment on to the page. 
-*/
 function Comments(){
+    const { id } = useParams();
 
+    const {currUser, comments,setComments, commentPost, setCommentsPost} = useContext(Context)
+    const [loading, setLoading] = useState(true);
+
+    useEffect(()=>{
+        async function getComments(){
+            const res = await fetch(`http://localhost:5000/comments/${id}`)
+            const data = await res.json()
+            setComments(data)
+            setLoading(false)
+        }
+        async function getCommentPost(){
+            const res = await fetch(`http://localhost:5000/board`)
+            const data = await res.json()
+            const currPost = data.find(cupost => cupost.id === Number(id))
+            setCommentsPost(currPost);
+        }
+        getCommentPost()
+        getComments()
+    },[loading])
 
     return(
         <div>
-            <Post/>
+            { loading ? <></> : <Post name={commentPost.name} profilePic={commentPost.profile_pic} message={commentPost.message} hashtag={commentPost.hashtag} date={commentPost.date} username={commentPost.username}/>}
             <MakeCommentModel/>
-            {/* this compnet will take in info about the post and render it at the top of the page*/}
-            comments page
-
-            <CommentsUL/> 
+            {loading ? <></> : <CommentsUL array={comments}/>} 
         </div>
     )
 }
