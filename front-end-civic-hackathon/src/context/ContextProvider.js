@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 // import { useEffect } from "react";
 import Context from "./Context";
 
@@ -21,6 +21,7 @@ function ContextProiver({children}){
         post,
         setPost,
         userInfo
+
     };
 
 
