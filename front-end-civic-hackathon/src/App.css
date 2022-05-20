@@ -1,49 +1,38 @@
-:root {
-  --raisin-black: #161925;
-  --alice-blue: #F1F6F9;
-  --celadon-blue: #3F7DA3;
-  --prussian-blue: #23395B;
-  --Glaucous: #5D85C0;
-}
-
-.mission-heading {
-  padding-top: 1rem;
-  text-align: center;
-  font-size: 4em;
-  font-style: italic;
-  color: var(--celadon-blue);
-}
-
-.mission-section {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 4em;
-  color: var(--celadon-blue);
-}
-
-.nav {
-  background-color: var(--Glaucous);
-  margin: 0;
-  padding: .5em;
-}
-
-.nav-link {
-  color: rgb(255, 255, 255);
-  font-size: 1.25em;
-}
-
-.nav-link:active {
-  color: #0d6efd;
-}
-
-.mission-container {
-  background-color: var(--alice-blue);
-}
-
-.mission-text {
-  margin-top: 1rem;
-  font-size: .5em;
-  color: #284F67;
-  min-width: fit-content;
+/* .App {
   text-align: center;
 }
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

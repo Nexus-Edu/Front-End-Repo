@@ -1,10 +1,9 @@
 import React from 'react'
 import '../../LoginSignUp.css'
-import Context from "../../context/Context"
-import { useContext, useState, useEffect } from 'react'
+// import Context from "../../context/Context"
+import { useState, useEffect } from 'react'
 
 export default function Signup() {
-  const { currentUser, setCurrentUser } = useContext
 // Holds the state of the sign up form
   const [state, setState] = useState({
     first_name: "",
@@ -26,7 +25,6 @@ export default function Signup() {
     })
   }
   // console.log(state)
-  // console.log('Here is contenxt', currentUser)
 
   // const signUpInformation = createContext(state);
   // console.log(signUpInformation)
@@ -39,13 +37,11 @@ export default function Signup() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state)
         })
-        // console.log(state)
-        // setCurrentState(state)
-      }
-      fetchNewUser()
-    }, [state, setCurrentUser])
-    
-    
+        console.log(state)
+    }
+    fetchNewUser()
+}, [state])
+
 
 
   return (
