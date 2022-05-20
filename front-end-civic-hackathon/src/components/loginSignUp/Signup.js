@@ -1,33 +1,46 @@
 import React from 'react'
 import '../../LoginSignUp.css'
-import Context from "../../context/Context"
-import { createContext, useState } from 'react'
+// import Context from "../../context/Context"
+import { useState, useEffect } from 'react'
 
 export default function Signup() {
 // Holds the state of the sign up form
   const [state, setState] = useState({
-    FirstNameInput: "",
-    LastNameInput: "",
-    EmailInput: "",
-    UserNameInput: "",
-    PasswordInput: ""
+    first_name: "",
+    last_name: "",
+    email: "",
+    username: "",
+    password: ""
   })
 
   const handleSubmit = (e) => {
 
     e.preventDefault()
     setState({
-      FirstNameInput: e.target.FirstName.value,
-      LastNameInput: e.target.LastName.value,
-      EmailInput: e.target.Email.value,
-      UserNameInput: e.target.UserName.value,
-      PasswordInput: e.target.Password.value
+      username: e.target.UserName.value,
+      password: e.target.Password.value,
+      email: e.target.Email.value,
+      first_name: e.target.FirstName.value,
+      last_name: e.target.LastName.value
     })
   }
-  console.log(state)
+  // console.log(state)
 
   // const signUpInformation = createContext(state);
   // console.log(signUpInformation)
+
+  
+  useEffect(() => {
+    const fetchNewUser = () => {
+        fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state)
+        })
+        console.log(state)
+    }
+    fetchNewUser()
+}, [state])
 
 
 
