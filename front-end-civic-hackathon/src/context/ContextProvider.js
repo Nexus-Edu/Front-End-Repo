@@ -1,18 +1,21 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 // import { useEffect } from "react";
 import Context from "./Context";
 
-function ContextProiver({children}){
-/// this is where we will add state that will be distribted though out the app. 
+function ContextProiver({ children }) {
+    /// this is where we will add state that will be distribted though out the app. 
     const [postDescription, setPostDescription] = useState("");
     const [hashTags, setHashTags] = useState("empty")
-    
+    const [currentUser, setCurrentUser] = useState({})
+
 
     let context = {
         postDescription,
         setPostDescription,
         hashTags,
-        setHashTags
+        setHashTags,
+        currentUser, 
+        setCurrentUser
     };
 
 
