@@ -7,25 +7,24 @@ import PostUl from './PostUl'
 
 function DiscussionBoard(){
     const { post, setPost} = useContext(Context)
-    const [loading, setLoading] = useState(true)
-    // const []
 
     useEffect(()=> {
         async function getPost(){
             const res = await fetch('http://localhost:5000/board')
             const data = await res.json()
             setPost(data)
-            setLoading(false)
         }
         getPost()
-    },[loading])
+    },[])
 
+    // update state -> 
     return(
         <>
         {/* <h1>{"hello?"}</h1> */}
         <MakeAPost/>
         <FilterButton/>
-        {loading ? <>loading...</> : <PostUl array={post}/>}
+        {/* {loading ? <>loading...</> : <PostUl array={post}/>} */}
+        <PostUl array={post}/>
         </>
     )
 }

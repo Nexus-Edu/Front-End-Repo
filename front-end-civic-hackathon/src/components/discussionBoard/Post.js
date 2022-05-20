@@ -1,16 +1,29 @@
 import Context from "../../context/Context"
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { Button } from "reactstrap"
-
+import {Link} from "react-router-dom"
 
 function Post(props) {
-    const {name, profilePic, message, hashtag, date, username} = props
+    const {name, profilePic, message, hashtag, date, username, id} = props
     const { userInfo } = useContext(Context)
+
+    useEffect(()=> {
+        async function deletePost(id){
+            fetch(`http://localhost:5000/board/post${id}`, {
+                method: 'DELETE',
+        })
+            .then(response => response.json())
+            .then(data => console.log(data.data))
+        }
+    },[])
+
+
+
     return (
         <div class="card">
+            <Link to={`/discussionBoard/${id}`}> 
             <div class="card-body">
                 <div className="flex-row">
-                    {/* <h5 class="card-title">Card title</h5> */}
                     <div>
                         <div>
                             <img src={profilePic} width="50" />
@@ -27,10 +40,14 @@ function Post(props) {
                     {hashtag}
                 </div>
             </div>
+            </Link>
             <div class="footer text-muted card flex-row">
                 <div>
                     posted: {date}
                 </div>
+                {userInfo !== username ? <></>: <Button onClick={()=>{
+                    // const newArray = 
+                }}>delete</Button>} 
             </div>
         </div>
     )
