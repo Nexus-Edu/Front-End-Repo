@@ -5,18 +5,18 @@ import {Link} from "react-router-dom"
 
 function Post(props) {
     const {name, profilePic, message, hashtag, date, username, id} = props
-    const { userInfo } = useContext(Context)
+    const { userInfo,setPost } = useContext(Context)
 
-    useEffect(()=> {
         async function deletePost(id){
-            fetch(`http://localhost:5000/board/post${id}`, {
-                method: 'DELETE',
-        })
-            .then(response => response.json())
-            .then(data => console.log(data.data))
-        }
-    },[])
 
+            const res = await fetch(`http://localhost:5000/board/post/${id}`, {
+                method: "DELETE"
+            })
+
+            const resTwo = await fetch('http://localhost:5000/board')
+            const data = await resTwo.json()
+            setPost(data)
+        }
 
 
     return (
@@ -46,7 +46,8 @@ function Post(props) {
                     posted: {date}
                 </div>
                 {userInfo !== username ? <></>: <Button onClick={()=>{
-                    // const newArray = 
+                     console.log(id)
+                     deletePost(id)
                 }}>delete</Button>} 
             </div>
         </div>
