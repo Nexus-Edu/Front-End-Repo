@@ -1,15 +1,28 @@
 import Context from "../../context/Context"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
+/*
+what needs to happen -> 
+what is happening ? i am getting the new post but only once and thats it, figure out why 
+*/
 
 export default function PostForm() {
-    const { setPostDescription, postDescription, setHashTags, hashTags } = useContext(Context)
-    ///can proobly clean up by making form data into an object. 
+    const { newPost, setNewPost, post, setPost} = useContext(Context)
+    const [sent, setSent] = useState(1);
+    const [newP , setNewP] = useState([]); 
 
+
+    const user = {
+        user_id: 10
+    }
+
+    
     const [state, setState] = useState({
         descriptionInput: "",
         hashTagInput: "",
     })
+    
+    const body = Object.assign(user, newPost);
 
     const handleChange = e => {
         setState({
@@ -18,18 +31,36 @@ export default function PostForm() {
         })
     }
 
+    useEffect(()=>{
+            async function sendPost(){
+               const res = await fetch('http://localhost:5000/board/post', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            })
+            const data = await res.json()
+            console.log(data.message)
+            // if(data.message !== "Please enter a message or hashtag"){
+            setNewP(data)    
+        }
+            sendPost()
+            console.log(newP)
+    }, [sent])
+
     return (
         <form onSubmit={(e) => {
             e.preventDefault()
-            setPostDescription(state.descriptionInput)
-            setHashTags(state.hashTagInput)
+            setNewPost({
+                message: state.descriptionInput,
+                hashtag: state.hashTagInput
+            })
+            setSent(true)
             setState({
                 descriptionInput: "",
                 hashTagInput: "",
             })
 
         }}>
-
             <label htmlFor="description">
                 Description:
             </label>
@@ -47,10 +78,7 @@ export default function PostForm() {
             <div class="modal-footer">
               <button type="submit" class="btn btn-secondary" value="make a post" data-bs-dismiss="modal">make a post</button>
               <button type="sumbit" class="btn btn-secondary" data-bs-dismiss="modal" onClick={ e =>{
-                   setState({
-                    descriptionInput: "",
-                    hashTagInput: "",
-                })
+                   setSent(1)
               }}>Cancel</button>
             </div>
         </form>

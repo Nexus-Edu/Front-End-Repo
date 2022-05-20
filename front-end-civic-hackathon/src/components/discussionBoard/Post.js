@@ -1,6 +1,11 @@
-function Post(props) {
-    const {name} = props
+import Context from "../../context/Context"
+import { useContext } from "react"
+import { Button } from "reactstrap"
 
+
+function Post(props) {
+    const {name, profilePic, message, hashtag, date, username} = props
+    const { userInfo } = useContext(Context)
     return (
         <div class="card">
             <div class="card-body">
@@ -8,23 +13,23 @@ function Post(props) {
                     {/* <h5 class="card-title">Card title</h5> */}
                     <div>
                         <div>
-                            <img src={"https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} width="50" />
+                            <img src={profilePic} width="50" />
                         </div>
-                        <h6 class="card-subtitle mb-2">{name} @ user1234</h6>
+                        <h6 class="card-subtitle mb-2">{name} @ {username}</h6>
                     </div>
 
                     <div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">{message}</p>
                     </div>
                 </div>
                 <br></br>
                 <div class="text-left">
-                    #hashtags #hashtags
+                    {hashtag}
                 </div>
             </div>
             <div class="footer text-muted card flex-row">
                 <div>
-                    posted: 2 days ago
+                    posted: {date}
                 </div>
             </div>
         </div>
