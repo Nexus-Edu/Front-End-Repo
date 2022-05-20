@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import '../App.css'
+import {Link} from "react-router-dom"
+
 
 function NavBar() {
   return (
@@ -19,7 +19,7 @@ function NavBar() {
       {/* <li class="nav-item">
   <a class="nav-link disabled">Disabled</a>
 </li> */}
-    </ul>
+</ul>
   )
 }
 

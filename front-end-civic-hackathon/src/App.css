@@ -1,3 +1,4 @@
+
 :root {
   --raisin-black: #161925;
   --alice-blue: #F1F6F9;
@@ -20,15 +21,13 @@
 .mission-section {
   margin-top: 1rem;
   text-align: center;
-  font-size: 4em;
-  color: var(--celadon-blue);
 }
 
-.nav {
-  background-color: var(--Glaucous);
-  margin: 0;
-  padding: .5em;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
+
 
 .nav .nav-link:hover,
 .nav .nav-link:active {
@@ -36,9 +35,10 @@
   font-weight: 700;
 }
 
-.mission-container {
-  background-color: var(--alice-blue);
+.App-link {
+  color: #61dafb;
 }
+
 
 .mission-text {
   margin-top: 1rem;
