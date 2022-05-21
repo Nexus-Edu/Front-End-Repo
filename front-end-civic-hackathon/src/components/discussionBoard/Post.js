@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 
 function Post(props) {
     const {name, profilePic, message, hashtag, date, username, id} = props
-    const { userInfo,setPost } = useContext(Context)
+    const { userInfo, setPost } = useContext(Context)
 
         async function deletePost(id){
 

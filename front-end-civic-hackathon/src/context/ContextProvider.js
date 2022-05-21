@@ -6,7 +6,7 @@ function ContextProiver({children}){
 /// this is where we will add state that will be distribted though out the app. 
     const [newPost, setNewPost] = useState({})
     const [comments,setComments] = useState([]);
-    const [commentPost, setCommentsPost] = useState(null);
+    const [commentPost, setCommentsPost] = useState({});
     const [post, setPost] = useState([]);
     const [userInfo, setUserInfo] = useState("amir.123dfv")
 

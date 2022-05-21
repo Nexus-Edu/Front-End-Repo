@@ -6,7 +6,7 @@ import { Button } from "reactstrap"
 
 function PostUl(props){
     // const { array } = props
-    const { post} = useContext(Context)
+    const { post } = useContext(Context)
     return(
         <ul>{
             post.map((post) => <li  key={post.id}>

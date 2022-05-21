@@ -30,10 +30,7 @@ export default function PostForm() {
 
     async function sendPost() {
         const body = Object.assign(user, state);
-
-
-
-
+        
         console.log(body)
         const res = await fetch('http://localhost:5000/board/post', {
             method: 'POST',
