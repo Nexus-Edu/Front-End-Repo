@@ -1,11 +1,13 @@
 import Context from "../../context/Context"
 import { useContext, useState, useEffect } from "react"
 import { Button } from "reactstrap"
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 
 function Post(props) {
     const {name, profilePic, message, hashtag, date, username, id} = props
     const { userInfo, setPost } = useContext(Context)
+    const currUrl = useLocation();
+    // console.log(currUrl.pathname)
 
         async function deletePost(id){
 
@@ -45,10 +47,43 @@ function Post(props) {
                 <div>
                     posted: {date}
                 </div>
-                {userInfo !== username ? <></>: <Button onClick={()=>{
+                {/* { ()=> {
+                    console.log("hello")
+                    if( userInfo.username !== username ){
+                        if( currUrl.pathname === "/discussionBoard"){
+                            return <Button onClick={()=>{
+                                console.log(id)
+                                deletePost(id)
+                           }}>delete</Button>
+                        } else {
+                            return <Link to="/discussionBoard">
+                            {console.log("hello")}
+                            <Button onClick={()=>{
+                                console.log(id)
+                                deletePost(id)
+                           }}>delete</Button>
+                            </Link>
+                        }
+                    }else {
+                        return <></>
+                    }
+                    // currUrl === "/discussionBoard" ? 
+                }
+                } */}
+                
+                {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
                      console.log(id)
                      deletePost(id)
-                }}>delete</Button>} 
+                }}>delete</Button>: <></>}
+
+                {userInfo.username === username && currUrl.pathname === `/discussionBoard/${id}` ? <Link to="/discussionBoard">
+                <Button onClick={()=>{
+                     console.log(id)
+                     deletePost(id)
+                }}>delete</Button>
+                </Link> : <></>}    
+
+
             </div>
         </div>
     )

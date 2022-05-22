@@ -7,11 +7,12 @@ what is happening ? i am getting the new post but only once and thats it, figure
 */
 
 export default function PostForm() {
-    const { newPost, setNewPost, post, setPost } = useContext(Context)
+    const { newPost, setNewPost, post, setPost ,userInfo } = useContext(Context)
 
     const user = {
-        user_id: 10
-    }
+        user_id: userInfo.id
+    } 
+    /// -> this might brake 
 
 
     const [state, setState] = useState({

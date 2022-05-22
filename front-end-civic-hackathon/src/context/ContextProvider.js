@@ -8,8 +8,9 @@ function ContextProiver({children}){
     const [comments,setComments] = useState([]);
     const [commentPost, setCommentsPost] = useState({});
     const [post, setPost] = useState([]);
-    const [userInfo, setUserInfo] = useState("amir.123dfv")
+    const [userInfo, setUserInfo] = useState({});
 
+    
 
     let context = {
         newPost,
@@ -20,7 +21,8 @@ function ContextProiver({children}){
         setCommentsPost,
         post,
         setPost,
-        userInfo
+        userInfo,
+        setUserInfo
     };
 
 

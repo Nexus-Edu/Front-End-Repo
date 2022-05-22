@@ -3,11 +3,11 @@ import { useContext, useState } from "react"
 import { useParams } from "react-router-dom";
 
 export default function CommentsForm() {
-    const { setComments, commentPost } = useContext(Context)
+    const { setComments, commentPost, userInfo } = useContext(Context)
     const { id } = useParams();
 
     const user = {
-        user_id: 10
+        user_id: userInfo.id
     }
 
     const [message, setMessage] = useState("")
