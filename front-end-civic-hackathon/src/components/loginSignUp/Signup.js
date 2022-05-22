@@ -1,10 +1,15 @@
-import React from 'react'
-import '../../LoginSignUp.css'
-// import Context from "../../context/Context"
-import { useState, useEffect } from 'react'
+import React from 'react';
+import '../../LoginSignUp.css';
+import Context from "../../context/Context";
+import { useState, useEffect, useContext } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Signup() {
-// Holds the state of the sign up form
+
+  const { setUserInfo } = useContext(Context);
+
+
+  // Holds the state of the sign up form
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -13,71 +18,99 @@ export default function Signup() {
     password: ""
   })
 
-  const handleSubmit = (e) => {
-
-    e.preventDefault()
+  const handleChange = e => {
     setState({
-      username: e.target.UserName.value,
-      password: e.target.Password.value,
-      email: e.target.Email.value,
-      first_name: e.target.FirstName.value,
-      last_name: e.target.LastName.value
+      ...state,
+      [e.target.name]: e.target.value,
     })
   }
+
+  // const handleSubmit = (e) => {
+
+  //   e.preventDefault()
+  //   setState({
+  //     username: e.target.UserName.value,
+  //     password: e.target.Password.value,
+  //     email: e.target.Email.value,
+  //     first_name: e.target.FirstName.value,
+  //     last_name: e.target.LastName.value
+  //   })
+  // }
   // console.log(state)
 
   // const signUpInformation = createContext(state);
   // console.log(signUpInformation)
 
-  
-  useEffect(() => {
-    const fetchNewUser = () => {
-        fetch('http://localhost:5000/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(state)
-        })
-        console.log(state)
-    }
-    fetchNewUser()
-}, [state])
 
+  // useEffect(() => {
+  //   const fetchNewUser = () => {
+  //     fetch('http://localhost:5000/signup', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(state)
+  //     })
+  //     console.log(state)
+  //   }
+  //   fetchNewUser()
+  // }, [state])
 
+  async function createAccount(){
+    const res = await fetch('http://localhost:5000/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state)
+    })
+
+    const data = await res.json()
+    setUserInfo(data.data[0])
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e)=>{
+      e.preventDefault()
+    }}>
 
-        {/* {console.log(state)} */}
+      {/* {console.log(state)} */}
       <div className="card">
         {/* Card Heading */}
         <h2>Sign Up:</h2>
 
         {/* First name */}
-        <label for="FirstName">First Name</label>
-        <input type="text" name="FirstName" placeholder="Enter First Name" className="card-input" />
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" value={state.first_name} placeholder="Enter First Name" className="card-input" onChange={handleChange} />
 
         {/* Last name */}
-        <label for="LastName">Last Name</label>
-        <input type="text" name="LastName" placeholder="Enter Last Name" className="card-input" />
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" value={state.last_name} placeholder="Enter Last Name" className="card-input" onChange={handleChange}/>
 
         {/* Email */}
-        <label for="Email">Email</label>
-        <input type="email" name="Email" placeholder="Enter email" className="card-input" />
+        <label for="email">Email</label>
+        <input type="email" name="email" value={state.email} placeholder="Enter email" className="card-input" onChange={handleChange}/>
 
         {/* Username */}
-        <label for="Username">Username</label>
-        <input type="text" name="UserName" placeholder="Enter Username" className="card-input" />
+        <label for="username">Username</label>
+        <input type="text" name="username" value={state.username} placeholder="Enter Username" className="card-input" onChange={handleChange}/>
 
         {/* Password */}
-        <label for="Password">Password</label>
-        <input type="password" name="Password" placeholder="Enter Password" className="card-input" />
-
+        <label for="password">Password</label>
+        <input type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
 
         {/* Sign Up Button */}
-        <button className="card-input card-btn">Sign Up</button>
+        <Link to='/'>
+          <button className="card-input card-btn" onClick={() => {
+            createAccount()
+            setState({
+              first_name: "",
+              last_name: "",
+              email: "",
+              username: "",
+              password: ""
+            })
+          }
+          }>Sign Up</button>
+        </Link>
       </div>
     </form>
-
   )
 }
 

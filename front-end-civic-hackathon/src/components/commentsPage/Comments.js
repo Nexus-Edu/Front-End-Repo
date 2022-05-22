@@ -9,8 +9,9 @@ import Context from "../../context/Context";
 function Comments(){
     const { id } = useParams();
 
-    const {setComments, commentPost, setCommentsPost} = useContext(Context)
+    const {setComments, commentPost, setCommentsPost, userInfo} = useContext(Context)
     const [loading, setLoading] = useState(true);
+    console.log(userInfo)
 
     useEffect(()=>{
         async function getComments(){
@@ -32,7 +33,7 @@ function Comments(){
     return(
         <div>
             { loading ? <>loading...</> : <Post name={commentPost.name} profilePic={commentPost.profile_pic} message={commentPost.message} hashtag={commentPost.hashtag} date={commentPost.date} username={commentPost.username} id={commentPost.id}/>}
-            {loading ? <></> : <MakeCommentModel/>}
+            {!userInfo.username ? <></> : <MakeCommentModel/>}
             <CommentsUL/>
         </div>
     )

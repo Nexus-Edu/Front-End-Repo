@@ -45,7 +45,7 @@ function Post(props) {
                 <div>
                     posted: {date}
                 </div>
-                {userInfo !== username ? <></>: <Button onClick={()=>{
+                {userInfo.username !== username ? <></>: <Button onClick={()=>{
                      console.log(id)
                      deletePost(id)
                 }}>delete</Button>} 

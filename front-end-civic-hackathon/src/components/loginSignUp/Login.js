@@ -53,10 +53,6 @@ export default function Login() {
     return (
         <form onSubmit={(e)=>{
             e.preventDefault()
-            // setState({
-            //     username: "",
-            //     password: ""
-            // })
         }}>
 
             <div className="card">

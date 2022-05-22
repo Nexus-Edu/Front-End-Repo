@@ -41,7 +41,7 @@ function CommentCard(props) {
                 <div>
                     posted: {posted}
                 </div>
-                {userInfo !== username ? <></>: <Button onClick={()=>{
+                {userInfo.username !== username ? <></>: <Button onClick={()=>{
                     //  console.log(id)
                      deleteComment(id)
                 }}>delete</Button>} 
