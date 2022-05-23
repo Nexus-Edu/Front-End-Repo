@@ -23,9 +23,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+  background: var(--Glaucous);
 }
 
 
@@ -42,7 +41,7 @@
 
 .mission-text {
   margin-top: 1rem;
-  font-size: .5em;
+  font-size: 1.5em;
   color: #284F67;
   min-width: fit-content;
   text-align: center;
