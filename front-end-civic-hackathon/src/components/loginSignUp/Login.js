@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+
 import '../../LoginSignUp.css'
 import Context from "../../context/Context"
 import {Link} from "react-router-dom"
@@ -23,6 +24,7 @@ export default function Login() {
 
 
     // console.log(state)
+
 
     async function logUserIn(){
         console.log(state)
@@ -55,6 +57,7 @@ export default function Login() {
             e.preventDefault()
         }}>
 
+
             <div className="card">
                 {/* Card Heading */}
                 <h2>Login:</h2>
@@ -70,6 +73,7 @@ export default function Login() {
                 <input type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
 
                 {/* Login Button */}
+
                 <Link to="/">
                 <button onClick={()=>{
                     logUserIn()
@@ -80,7 +84,9 @@ export default function Login() {
                 } 
                 }className="card-input">Sign In</button>
                 </Link>
+
             </div>
         </form>
+        </UserContext.Provider>
     )
 }

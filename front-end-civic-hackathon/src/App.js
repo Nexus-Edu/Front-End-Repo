@@ -7,6 +7,7 @@ import Comments from "./components/commentsPage/Comments"
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserPage from './components/userPage/userPage'
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/loginSignUp" element={<LoginSignUpPage/>}/>
         <Route path="/discussionBoard" element={<DiscussionBoard/>}/>
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
+        <Route path="/userPage" element={<UserPage />} />
       </Routes>
       <footer>
         {/* <Footer/> */}
