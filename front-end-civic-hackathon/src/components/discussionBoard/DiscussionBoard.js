@@ -6,7 +6,7 @@ import { useContext, useState, useEffect } from "react"
 import PostUl from './PostUl'
 
 function DiscussionBoard(){
-    const { post, setPost} = useContext(Context)
+    const { post, setPost, userInfo} = useContext(Context)
 
     useEffect(()=> {
         async function getPost(){
@@ -21,7 +21,7 @@ function DiscussionBoard(){
     return(
         <>
         {/* <h1>{"hello?"}</h1> */}
-        <MakeAPost/>
+        {!userInfo.username ? <></> :<MakeAPost/>}
         <FilterButton/>
         {/* {loading ? <>loading...</> : <PostUl array={post}/>} */}
         <PostUl array={post}/>

@@ -6,25 +6,18 @@ import { useParams } from "react-router-dom";
 import {useState, useEffect, useContext} from "react"
 import Context from "../../context/Context";
 
-/// a few things that need to get built out
-/*
-- a add comment button 
-- render out the comments of that post in a ul 
-     -render each comment as li -> comment card commonent
-- need to build out a back to comments button
-*/
-
 function Comments(){
     const { id } = useParams();
 
-    const {currUser, comments,setComments, commentPost, setCommentsPost} = useContext(Context)
+    const {setComments, commentPost, setCommentsPost, userInfo} = useContext(Context)
     const [loading, setLoading] = useState(true);
+    console.log(userInfo)
 
     useEffect(()=>{
         async function getComments(){
             const res = await fetch(`http://localhost:5000/comments/${id}`)
             const data = await res.json()
-            setComments(data)
+            setComments(data.data)
             setLoading(false)
         }
         async function getCommentPost(){
@@ -35,13 +28,13 @@ function Comments(){
         }
         getCommentPost()
         getComments()
-    },[loading])
+    },[])
 
     return(
         <div>
-            { loading ? <></> : <Post name={commentPost.name} profilePic={commentPost.profile_pic} message={commentPost.message} hashtag={commentPost.hashtag} date={commentPost.date} username={commentPost.username}/>}
-            <MakeCommentModel/>
-            {loading ? <></> : <CommentsUL array={comments}/>} 
+            { loading ? <>loading...</> : <Post name={commentPost.name} profilePic={commentPost.profile_pic} message={commentPost.message} hashtag={commentPost.hashtag} date={commentPost.date} username={commentPost.username} id={commentPost.id}/>}
+            {!userInfo.username ? <></> : <MakeCommentModel/>}
+            <CommentsUL/>
         </div>
     )
 }

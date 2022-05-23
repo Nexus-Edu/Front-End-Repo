@@ -1,22 +1,24 @@
 import Context from "../../context/Context"
 import { useContext, useState, useEffect } from "react"
 import { Button } from "reactstrap"
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 
 function Post(props) {
     const {name, profilePic, message, hashtag, date, username, id} = props
-    const { userInfo } = useContext(Context)
+    const { userInfo, setPost } = useContext(Context)
+    const currUrl = useLocation();
+    // console.log(currUrl.pathname)
 
-    useEffect(()=> {
         async function deletePost(id){
-            fetch(`http://localhost:5000/board/post${id}`, {
-                method: 'DELETE',
-        })
-            .then(response => response.json())
-            .then(data => console.log(data.data))
-        }
-    },[])
 
+            const res = await fetch(`http://localhost:5000/board/post/${id}`, {
+                method: "DELETE"
+            })
+
+            const resTwo = await fetch('http://localhost:5000/board')
+            const data = await resTwo.json()
+            setPost(data)
+        }
 
 
     return (
@@ -45,9 +47,43 @@ function Post(props) {
                 <div>
                     posted: {date}
                 </div>
-                {userInfo !== username ? <></>: <Button onClick={()=>{
-                    // const newArray = 
-                }}>delete</Button>} 
+                {/* { ()=> {
+                    console.log("hello")
+                    if( userInfo.username !== username ){
+                        if( currUrl.pathname === "/discussionBoard"){
+                            return <Button onClick={()=>{
+                                console.log(id)
+                                deletePost(id)
+                           }}>delete</Button>
+                        } else {
+                            return <Link to="/discussionBoard">
+                            {console.log("hello")}
+                            <Button onClick={()=>{
+                                console.log(id)
+                                deletePost(id)
+                           }}>delete</Button>
+                            </Link>
+                        }
+                    }else {
+                        return <></>
+                    }
+                    // currUrl === "/discussionBoard" ? 
+                }
+                } */}
+                
+                {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
+                     console.log(id)
+                     deletePost(id)
+                }}>delete</Button>: <></>}
+
+                {userInfo.username === username && currUrl.pathname === `/discussionBoard/${id}` ? <Link to="/discussionBoard">
+                <Button onClick={()=>{
+                     console.log(id)
+                     deletePost(id)
+                }}>delete</Button>
+                </Link> : <></>}    
+
+
             </div>
         </div>
     )

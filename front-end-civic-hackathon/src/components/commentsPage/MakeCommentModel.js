@@ -1,37 +1,35 @@
+import CommentsForm from "./CommentsForm";
 import {Modal, Button} from "react-bootstrap"
 import {useState} from 'react'
 
+
 function MakeCommentModel(){
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
-    return (
+    return(
+      // <!-- Button trigger modal -->
       <>
-        <Button onClick={handleShow}>
-          Make a Comment
-        </Button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Make a Comment
+      </button>
+      
+      {/* // <!-- Modal --> */}
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>New Comment</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-              here the form is gonna go in. 
-          </Modal.Body>
+          <div class="modal-content">
 
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Make Post
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">New Comment</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={"s"}></button>
+            </div>
+
+            <div class="modal-body">
+            <CommentsForm/>
+            </div>
+          </div>
+
+        </div>
+      </div> 
+      </> )  
 }
 
 

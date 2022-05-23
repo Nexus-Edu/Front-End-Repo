@@ -7,11 +7,12 @@ what is happening ? i am getting the new post but only once and thats it, figure
 */
 
 export default function PostForm() {
-    const { newPost, setNewPost, post, setPost } = useContext(Context)
+    const { newPost, setNewPost, post, setPost ,userInfo } = useContext(Context)
 
     const user = {
-        user_id: 10
-    }
+        user_id: userInfo.id
+    } 
+    /// -> this might brake 
 
 
     const [state, setState] = useState({
@@ -30,10 +31,7 @@ export default function PostForm() {
 
     async function sendPost() {
         const body = Object.assign(user, state);
-
-
-
-
+        
         console.log(body)
         const res = await fetch('http://localhost:5000/board/post', {
             method: 'POST',

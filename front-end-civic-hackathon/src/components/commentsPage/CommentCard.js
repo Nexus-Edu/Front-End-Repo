@@ -1,15 +1,31 @@
-import {Card} from 'react-bootstrap'
+import { Button } from "reactstrap"
+import Context from "../../context/Context"
+import { useContext, useState, useEffect } from "react"
+import { useParams } from "react-router-dom";
 
 // display: flex;
 // align-items: self-end;
 //this is the style that is needed for the image and the name to render side by side. 
 
 function CommentCard(props) {
-    const {name, username, comment, posted} = props
+    const {userInfo, setComments} = useContext(Context)
+    const {name, username, comment, posted, commentid} = props
+    const { id } = useParams();
+
+    async function deleteComment(id){
+        await fetch(`http://localhost:5000/comments/delete/${commentid}`, {
+            method: "DELETE"
+        })
+        const res = await fetch(`http://localhost:5000/comments/${id}`)
+        const data = await res.json()
+        console.log(data)
+        setComments(data.data)
+    }
+
+
     return (
         <>
             <div class="card">
-
             <div class="card-body" className="flex-row">
                 <div>
                     <div className='flex'>
@@ -25,6 +41,10 @@ function CommentCard(props) {
                 <div>
                     posted: {posted}
                 </div>
+                {userInfo.username !== username ? <></>: <Button onClick={()=>{
+                    //  console.log(id)
+                     deleteComment(id)
+                }}>delete</Button>} 
             </div>
         </div>
         </>
