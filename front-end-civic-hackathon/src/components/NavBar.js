@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import '../App.css'
 
 
@@ -12,6 +12,9 @@ function NavBar() {
       <li class="nav-item">
         <Link to="/discussionBoard" class="nav-link active">Discussion Board</Link>
       </li>
+      <li class="d-flex">
+        <Link to="/user" class="nav-link active">User Page</Link>
+      </li>
       <div>
         <li class="d-flex">
           <Link to="/loginSignUp" class="nav-link active">Login</Link>
@@ -20,7 +23,7 @@ function NavBar() {
       {/* <li class="nav-item">
   <a class="nav-link disabled">Disabled</a>
 </li> */}
-</ul>
+    </ul>
   )
 }
 

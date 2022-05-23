@@ -87,6 +87,5 @@ export default function Login() {
 
             </div>
         </form>
-        </UserContext.Provider>
     )
 }

@@ -23,7 +23,7 @@ function App() {
         <Route path="/loginSignUp" element={<LoginSignUpPage/>}/>
         <Route path="/discussionBoard" element={<DiscussionBoard/>}/>
         <Route path="/discussionBoard/:id" element={<Comments/>}/>
-        <Route path="/userPage" element={<UserPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
       <footer>
         {/* <Footer/> */}

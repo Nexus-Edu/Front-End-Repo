@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Context from "../../context/Context" 
 import UserInfo from './UserInfo';
 
 
 export default function UserPage() {
   const [userInfo, setUserInfo] = useState([]);
+
+  const { info } = useContext(Context)
+  console.log(info)
 
 // const user = useContext(UserContext)
 
@@ -13,7 +17,7 @@ export default function UserPage() {
         .then(response => response.json())
         .then(data => {
           const info = data;
-          // console.log(info)
+          console.log(info)
           setUserInfo(info)
         })
     }
@@ -31,6 +35,7 @@ export default function UserPage() {
 
   return (
     <div>
+      <h1>User Profile</h1>
       {renderUserInfo()}
     </div>
   )
