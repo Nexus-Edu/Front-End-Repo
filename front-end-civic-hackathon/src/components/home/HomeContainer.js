@@ -7,7 +7,6 @@ function HomeContainer(){
     // console.log(userInfo)
     return(
         <div>
-            {!userInfo.username ? <></> : <h1>welcome : {userInfo.username}</h1>}
             <Mission />
         </div>
     )

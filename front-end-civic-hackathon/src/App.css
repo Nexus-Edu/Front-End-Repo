@@ -25,6 +25,8 @@
 
 .nav {
   background: var(--Glaucous);
+  display: flex;
+  padding-bottom: 5px;
 }
 
 
@@ -51,4 +53,27 @@
 .nav .nav-link {
   color: var(--alice-blue);
   font-size: 1.25em;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-left: 10em;
+}
+
+.nav-user {
+  display: flex;
+  margin-left: 500px;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }

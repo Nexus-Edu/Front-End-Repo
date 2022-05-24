@@ -253,7 +253,7 @@ export default function UserInfo(props) {
                 </form>
             </div>
 
-            <div className="info-display-container">
+            {/* <div className="info-display-container">
                 <h1>{info.first_name}</h1>
                 <h1>{info.last_name}</h1>
                 <h1>{info.age}</h1>
@@ -261,7 +261,7 @@ export default function UserInfo(props) {
                 <h1>{info.birthday}</h1>
                 <h1>{info.image}</h1>
                 <h1>{info.bio}</h1>
-            </div>
+            </div> */}
         </div>
     )
 }
