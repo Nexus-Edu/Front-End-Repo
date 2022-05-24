@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Avatar } from "grommet";
 
 export default function UserInfo(props) {
     const { info } = props;
@@ -163,8 +164,13 @@ export default function UserInfo(props) {
         <div>
             <div className="input-container">
                 {/* Dummy Image */}
-                {console.log(info.image)}
-                <img src={info.image} alt="hey" width="100" height="100" />
+                {/* {console.log(info.image)}
+                <img src={info.image} alt="hey" width="100" height="100" /> */}
+                <div>
+                <Box direction="row" gap="small" className="Avatar">
+                    <Avatar src={info.image} alt="hey" width="100" height="100" />
+                </Box>
+                </div>
 
                 {/* First Name Form */}
                 <form onSubmit={updateFirstName}>
