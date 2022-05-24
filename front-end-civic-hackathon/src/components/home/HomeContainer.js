@@ -4,11 +4,11 @@ import { useContext } from "react"
 
 function HomeContainer(){
     const {userInfo} = useContext(Context)
-    console.log(userInfo)
+    // console.log(userInfo)
     return(
         <div>
             {!userInfo.username ? <></> : <h1>welcome : {userInfo.username}</h1>}
-            <Mission/>
+            <Mission />
         </div>
     )
 }

@@ -51,6 +51,7 @@ export default function Login() {
     //     }
     //     fetchUser()
     // }, [state])
+    // console.log(state)
 
     return (
         <form onSubmit={(e)=>{
@@ -74,7 +75,7 @@ export default function Login() {
 
                 {/* Login Button */}
 
-                <Link to="/">
+                <Link to="/user">
                 <button onClick={()=>{
                     logUserIn()
                     setState({
