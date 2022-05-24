@@ -1,0 +1,9 @@
+.post-container .post-body {
+    color: rgb(0, 0, 0);
+    list-style-type: none
+}
+
+.post-body {
+    text-decoration: underline;
+    text-decoration-color: white;
+}
