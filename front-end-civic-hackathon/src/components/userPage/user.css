@@ -1,0 +1,17 @@
+* {
+    justify-content: center;
+}
+
+.Avatar {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 75px;
+    border: solid black 2px;
+  }
+
+.button {
+    color: 5D85C0;
+    padding: 10px;
+    
+}
