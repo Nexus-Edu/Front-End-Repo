@@ -23,13 +23,15 @@ function Post(props) {
 
         // Modifying Date
         date = date.split('');
-        // console.log(date)
         date = date.slice(0, 10)
         date = date.join('')
-        // date = Date(date)
-        // date = date.getTime()
-        console.log(date)
-        // index 10 and above
+        console.log(Number(date))
+
+        let currentDate = new Date(); 
+        let currentDate1 = new Date(date);
+        // console.log(currentDate)
+        // console.log(currentDate1)
+        console.log(currentDate - currentDate1)
 
 
     return (
@@ -62,20 +64,20 @@ function Post(props) {
                 </div>
                 {/* Post Body */}
                 <div className="post-body">
-                    <h3>{username} <em>{date}</em></h3>
-                    <span>&#64;</span>
-                    <em>{userInfo.first_name} {userInfo.last_name}</em>
-<hr />
+                    <h3> {username} <em className="date">{date}</em></h3>
+                    <span className="name">&#64;</span>
+                    <em className="name">{userInfo.first_name} {userInfo.last_name}</em>
+{/* <hr /> */}
                     <blockquote>{message}</blockquote>
 
-                    <p>{hashtag}</p>
+                    <p>{`${hashtag}`}</p>
                     {/* <em>posted: {date}</em> */}
                 </div>
             </div>
             </Link>
                 
                 
-                {/* {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
+                {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
                      console.log(id)
                      deletePost(id)
                 }}>delete</Button>: <></>}
@@ -85,7 +87,7 @@ function Post(props) {
                      console.log(id)
                      deletePost(id)
                 }}>delete</Button>
-                </Link> : <></>}     */}
+                </Link> : <></>}    
 
 
             </div>

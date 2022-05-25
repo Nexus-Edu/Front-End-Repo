@@ -1,3 +1,7 @@
+/* .center {
+background-color: aliceblue;
+} */
+
 .post-container .post-body {
     color: rgb(0, 0, 0);
     list-style-type: none
@@ -7,3 +11,14 @@
     text-decoration: underline;
     text-decoration-color: white;
 }
+
+/* Remove birthday */
+/* Remove the space after @ */
+/* Make sure to ge the icon
+ post icon bigger
+ comment icon bigger */
+ /* Meeage should be the main fearure of a post*/
+ /* Five differnet users, 10 differnet post, 2 comments */
+ /* Differneate is the comment itself */
+ /* Filer by hashtag */
+ /* Delete on the User */
