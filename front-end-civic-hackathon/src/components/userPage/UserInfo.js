@@ -88,25 +88,25 @@ export default function UserInfo(props) {
     });
   }
 
-  function updateBirthdayName(event) {
-    event.preventDefault();
-    const updatedInfo = event.target.Birthday.value;
+//   function updateBirthdayName(event) {
+//     event.preventDefault();
+//     const updatedInfo = event.target.Birthday.value;
 
-    // Fetch Calls
-    fetch(`http://localhost:5000/updateUserInfo/${info.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: info.email,
-        first_name: info.first_name,
-        last_name: info.last_name,
-        age: parseInt(info.age),
-        birthday: updatedInfo,
-        image: info.image,
-        bio: info.bio,
-      }),
-    });
-  }
+//     // Fetch Calls
+//     fetch(`http://localhost:5000/updateUserInfo/${info.id}`, {
+//       method: "PUT",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({
+//         email: info.email,
+//         first_name: info.first_name,
+//         last_name: info.last_name,
+//         age: parseInt(info.age),
+//         birthday: updatedInfo,
+//         image: info.image,
+//         bio: info.bio,
+//       }),
+//     });
+//   }
 
   function updateImageName(event) {
     event.preventDefault();
@@ -224,20 +224,22 @@ export default function UserInfo(props) {
         <br />
         <br />
         {/* Birthday Form */}
-        <form onSubmit={updateBirthdayName}>
+        
+        {/* <form onSubmit={updateBirthdayName}>
           <label for="Birthday">Birthday:</label>
-          <br />
+          <br /> */}
           {/* <input type="text" name="Birthday" defaultValue={info.birthday} /> */}
-          <input type="date" name="Birthday" defaultValue={info.birthday} />
+          {/* <input type="date" name="Birthday" defaultValue={info.birthday} />
           <button className="button">Update</button>
-        </form>
+        </form> */}
 
         {/* <input type="image" src={info.image}></input> */}
 
         {/* <h3>Image:</h3>
                 <img src={info.image} alt="hey" width="50" /> */}
-        <br />
-        <br />
+        {/* <br />
+        <br /> */}
+
 
         {/* Image Form */}
         <label for="Image">Image:</label>
