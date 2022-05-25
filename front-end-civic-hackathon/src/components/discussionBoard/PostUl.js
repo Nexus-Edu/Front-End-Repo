@@ -9,7 +9,7 @@ function PostUl(props){
     const { post } = useContext(Context)
     return(
         <ul>{
-            post.map((post) => <li  key={post.id}>
+            post.map((post) => <li style={{listStyleType: 'none'}}  key={post.id}>
                 <Post name={post.name} profilePic={post.profile_pic} message={post.message} hashtag={post.hashtag} date={post.date} username={post.username} id={post.id}/>
                 </li>)
         }</ul>

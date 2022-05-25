@@ -2,9 +2,10 @@ import Context from "../../context/Context"
 import { useContext, useState, useEffect } from "react"
 import { Button } from "reactstrap"
 import {Link, useLocation} from "react-router-dom"
+import "../../post.css"
 
 function Post(props) {
-    const {name, profilePic, message, hashtag, date, username, id} = props
+    let {name, profilePic, message, hashtag, date, username, id} = props
     const { userInfo, setPost } = useContext(Context)
     const currUrl = useLocation();
     // console.log(currUrl.pathname)
@@ -20,11 +21,22 @@ function Post(props) {
             setPost(data)
         }
 
+        // Modifying Date
+        date = date.split('');
+        // console.log(date)
+        date = date.slice(0, 10)
+        date = date.join('')
+        // date = Date(date)
+        // date = date.getTime()
+        console.log(date)
+        // index 10 and above
+
 
     return (
-        <div class="card">
+        // class="card"
+        <div class="center">
             <Link to={`/discussionBoard/${id}`}> 
-            <div class="card-body">
+            {/* <div class="card-body">
                 <div className="flex-row">
                     <div>
                         <div>
@@ -41,37 +53,29 @@ function Post(props) {
                 <div class="text-left">
                     {hashtag}
                 </div>
+            </div> */}
+
+            <div className="post-container">
+                {/* Post User's Image */}
+                <div>
+                    <img src={profilePic} alt="user_image" className="user-img" />
+                </div>
+                {/* Post Body */}
+                <div className="post-body">
+                    <h3>{username} <em>{date}</em></h3>
+                    <span>&#64;</span>
+                    <em>{userInfo.first_name} {userInfo.last_name}</em>
+<hr />
+                    <blockquote>{message}</blockquote>
+
+                    <p>{hashtag}</p>
+                    {/* <em>posted: {date}</em> */}
+                </div>
             </div>
             </Link>
-            <div class="footer text-muted card flex-row">
-                <div>
-                    posted: {date}
-                </div>
-                {/* { ()=> {
-                    console.log("hello")
-                    if( userInfo.username !== username ){
-                        if( currUrl.pathname === "/discussionBoard"){
-                            return <Button onClick={()=>{
-                                console.log(id)
-                                deletePost(id)
-                           }}>delete</Button>
-                        } else {
-                            return <Link to="/discussionBoard">
-                            {console.log("hello")}
-                            <Button onClick={()=>{
-                                console.log(id)
-                                deletePost(id)
-                           }}>delete</Button>
-                            </Link>
-                        }
-                    }else {
-                        return <></>
-                    }
-                    // currUrl === "/discussionBoard" ? 
-                }
-                } */}
                 
-                {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
+                
+                {/* {userInfo.username === username && currUrl.pathname === "/discussionBoard" ? <Button onClick={()=>{
                      console.log(id)
                      deletePost(id)
                 }}>delete</Button>: <></>}
@@ -81,11 +85,10 @@ function Post(props) {
                      console.log(id)
                      deletePost(id)
                 }}>delete</Button>
-                </Link> : <></>}    
+                </Link> : <></>}     */}
 
 
             </div>
-        </div>
     )
 }
 
