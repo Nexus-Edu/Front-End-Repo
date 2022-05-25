@@ -3,6 +3,9 @@ import '../../LoginSignUp.css';
 import Context from "../../context/Context";
 import { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom";
+import { Box, Form, FormField, TextInput } from 'grommet';
+import { RoutedButton as GrommetRoutedButton, Text } from 'grommet';
+
 
 export default function Signup() {
 
@@ -69,34 +72,66 @@ export default function Signup() {
     <form onSubmit={(e)=>{
       e.preventDefault()
     }}>
+      {/* Card Heading */}
+      <h2>Sign Up:</h2>
 
       {/* {console.log(state)} */}
-      <div className="card">
-        {/* Card Heading */}
-        <h2>Sign Up:</h2>
-
-        {/* First name */}
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" value={state.first_name} placeholder="Enter First Name" className="card-input" onChange={handleChange} />
+      <Box>
+        <Form>
+          {/* First name */}
+          <Box border gap="medium" pad="large" width="medium">
+          <FormField htmlFor="User-id" name="enabled" label="FirstName">
+            <TextInput type="text" name="first_name" value={state.first_name} placeholder="Enter First Name" className="card-input" onChange={handleChange} />
+          </FormField>
 
         {/* Last name */}
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" value={state.last_name} placeholder="Enter Last Name" className="card-input" onChange={handleChange}/>
+        <FormField htmlFor='lastName-id'  name='enabled' label='LastName'>
+        <TextInput type="text" name="last_name" value={state.last_name} placeholder="Enter Last Name" className="card-input" onChange={handleChange}/>
+        </FormField>
 
         {/* Email */}
-        <label for="email">Email</label>
-        <input type="email" name="email" value={state.email} placeholder="Enter email" className="card-input" onChange={handleChange}/>
+        <FormField htmlFor='email' name='enabled' label="Email">
+        <TextInput type="email" name="email" value={state.email} placeholder="Enter email" className="card-input" onChange={handleChange}/>
+        </FormField>
 
         {/* Username */}
-        <label for="username">Username</label>
-        <input type="text" name="username" value={state.username} placeholder="Enter Username" className="card-input" onChange={handleChange}/>
+        <FormField htmlFor='UserName' name='enabled' label="UserName">
+        <TextInput type="text" name="username" value={state.username} placeholder="Enter Username" className="card-input" onChange={handleChange}/>
+        </FormField>
 
         {/* Password */}
-        <label for="password">Password</label>
-        <input type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
+        <FormField htmlFor="password" name='enabled' label= "Password">
+        <TextInput type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
+        </FormField>
 
-        {/* Sign Up Button */}
-        <Link to='/'>
+
+        {/* sign in  */}
+        <Box align="center" pad="large">
+          <GrommetRoutedButton label="Sign Up" path="/" onClick={() => {
+            createAccount()
+            setState({
+              first_name: "",
+              last_name: "",
+              email: "",
+              username: "",
+              password: ""
+            })
+          }
+          } />
+        </Box>
+
+
+        {/* log in link*/}
+        <Link to="/Login" variant = "body2">
+          Already have an account ? Log In 
+        </Link>
+
+        
+        
+        
+        
+
+        {/* <Link to='/'>
           <button className="card-input card-btn" onClick={() => {
             createAccount()
             setState({
@@ -108,8 +143,10 @@ export default function Signup() {
             })
           }
           }>Sign Up</button>
-        </Link>
-      </div>
+        </Link> */}
+          </Box>
+        </Form>
+      </Box>
     </form>
   )
 }
