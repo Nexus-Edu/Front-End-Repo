@@ -22,7 +22,7 @@ function DiscussionBoard(){
         <>
         {/* <h1>{"hello?"}</h1> */}
         {!userInfo.username ? <></> :<MakeAPost/>}
-        <FilterButton/>
+        {/* <FilterButton/> */}
         {/* {loading ? <>loading...</> : <PostUl array={post}/>} */}
         <PostUl array={post}/>
         </>
