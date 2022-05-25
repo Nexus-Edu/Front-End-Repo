@@ -107,7 +107,7 @@ export default function Signup() {
 
         {/* sign in  */}
         <Box align="center" pad="large">
-          <GrommetRoutedButton label="Sign Up" path="/" onClick={() => {
+          <GrommetRoutedButton label="Sign Up" path="/Login" onClick={() => {
             createAccount()
             setState({
               first_name: "",

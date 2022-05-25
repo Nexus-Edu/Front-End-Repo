@@ -61,11 +61,11 @@ export default function Login() {
             e.preventDefault()
         }}>
                 {/* Card Heading */}
-                <h2>Login:</h2>
 
                 <Box align='center' pad='large'>
                 <Form>
                 <Box border gap='medium' pad="large" width="medium">
+                <h2>Login:</h2>
 
                 {/* Username */}
                 <FormField htmlFor="Username" name='enabled' label='UserName'>
@@ -80,7 +80,7 @@ export default function Login() {
                 {/* Login Button */}
                 
                 <Box align="center" pad="large">
-                <GrommetRoutedButton label="Sign Up" path="/user" onClick={() => {
+                <GrommetRoutedButton label="Log In" path="/discussionBoard" onClick={() => {
            logUserIn()
            setState({
                username: "",
