@@ -18,15 +18,15 @@ function Mission(){
                         <img className='home-image' src='https://cdn-icons-png.flaticon.com/512/3867/3867730.png'/>
                     </section>
                     <section className=''>
-                        <h2>sub heading</h2>
-                        <p>body</p>
+                        <h2>Network</h2>
+                        <p> Build the network you need to jumpstart your career without a college degree.</p>
                     </section>
                 </section>
 
                  <section className='flex-box2'>
                 <section>
-                    <h2>sub heading2</h2>
-                    <p>body2</p>
+                    <h2>Career Building</h2>
+                    <p>Explore possible careers that can help you become financially stable.</p>
                 </section>
                 <section>
                     <img className='home-image' src='https://cdn-icons-png.flaticon.com/512/3867/3867730.png'/>
@@ -38,8 +38,8 @@ function Mission(){
                         <img className='home-image' src='https://cdn-icons-png.flaticon.com/512/3867/3867730.png'/>
                     </section>
                     <section className=''>
-                        <h2>sub heading</h2>
-                        <p>body</p>
+                        <h2>Hospitable Community</h2>
+                        <p>Find your professional niche to learn and grow.</p>
                     </section>
                 </section>
             {/* <GrommetRoutedButton label="Sign Up" path="/loginSignUp" /> */}

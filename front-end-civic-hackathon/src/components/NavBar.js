@@ -16,13 +16,13 @@ function NavBar() {
     {/* <!-- Navbar Logo --> */}
     <div className="logo">
       {/* <!-- Logo Placeholder for Inlustration --> */}
-      <a href="#home"><i className="nexus-sign"></i> Nexus EDU</a>
+      <a href="/"><i className="nexus-sign"></i> Nexus EDU</a>
     </div>
 
     {/* <!-- Navbar Links --> */}
     <ul id="menu">
-   <li><a href="./discussionBoard">discussionBoard</a></li>
-   <li><a href="/SignUp">signUp</a></li>
+   <li><a href="/discussionBoard">Discussion Board</a></li>
+   <li><a href="/SignUp">Sign Up</a></li>
    <li><a href="/Login">Log In</a></li>
     </ul>
   </div>
