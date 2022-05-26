@@ -7,9 +7,6 @@
   --standard-margin: 1em;
 }
 
-.App {
-  background-color: #c8ddea;
-}
 
 .mission-heading {
   padding-top: 1rem;
@@ -55,7 +52,7 @@
 
 
 .nav .nav-link {
-  color: var(--alice-blue);
+  /* color: var(--alice-blue); */
   font-size: 1.25em;
 }
 
@@ -76,11 +73,6 @@
   margin-left: 500px;
 }
 
-.nav-item {
-  color: white;
-  text-decoration: none;
-  text-align: center;
-}
 
 .post-container {
   display: flex;
