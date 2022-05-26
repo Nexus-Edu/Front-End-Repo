@@ -8,6 +8,10 @@
   --standard-margin: 1em;
 }
 
+.App {
+  background-color: var(--alice-blue);
+}
+
 .mission-heading {
   padding-top: 1rem;
   text-align: center;
