@@ -50,7 +50,7 @@ function NavBar() {
     <Nav.Link href="/loginSignUp">Sign Up</Nav.Link>
   </Nav.Item>
   <Nav.Item>
-    <Nav.Link eventKey="link-2">Icon</Nav.Link>
+    <Nav.Link eventKey="">Icon</Nav.Link>
   </Nav.Item>
 
 </Nav>
