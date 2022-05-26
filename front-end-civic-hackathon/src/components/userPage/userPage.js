@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Context from "../../context/Context"
 import UserInfo from './UserInfo';
+import UserEdit from './UserEdit';
 import "../../post.css"
 
 
 export default function UserPage() {
 
   const { userInfo } = useContext(Context);
+
+  const [editMode, setEditMode] = useState(false);
 
   // console.log(userInfo)
 
@@ -16,8 +19,12 @@ export default function UserPage() {
 
   function renderUserInfo() {
     return currentUser.map(user => {
-      return <UserInfo info={user} id={user.id} />
+      return editMode ? <UserEdit info={user} id={user.id} /> : <UserInfo info={user} id={user.id} />
     })
+  }
+
+  function toggleEditMode() {
+    setEditMode((prevState) => !prevState)
   }
 
   // console.log(userInfo.id)
@@ -74,7 +81,7 @@ export default function UserPage() {
       {/* <h1>Hello There, {userInfo.username}</h1> */}
       {renderUserInfo()}
       <br />
-      {getSpecificUserPosts()}
+      <button onClick={toggleEditMode}>{editMode ? 'Cancel Edit' : 'Edit Profile'}</button>
     </div>
   )
 }
