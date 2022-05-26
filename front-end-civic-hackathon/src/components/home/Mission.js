@@ -29,13 +29,13 @@ function Mission(){
                     <p>Explore possible careers that can help you become financially stable.</p>
                 </section>
                 <section>
-                    <img className='home-image' src='https://cdn-icons-png.flaticon.com/512/3867/3867730.png'/>
+                    <img className='home-image' src='https://cdn4.iconfinder.com/data/icons/business-pack-7/64/staff-promotion-career-advancement-manager-128.png'/>
                 </section>
                  </section>
             </section>
             <section className='flex-box3'>
                     <section>
-                        <img className='home-image' src='https://cdn-icons-png.flaticon.com/512/3867/3867730.png'/>
+                        <img className='home-image' src='https://cdn-icons-png.flaticon.com/128/7186/7186740.png'/>
                     </section>
                     <section className=''>
                         <h2>Hospitable Community</h2>
