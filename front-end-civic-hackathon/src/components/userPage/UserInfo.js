@@ -88,26 +88,6 @@ export default function UserInfo(props) {
     });
   }
 
-  //   function updateBirthdayName(event) {
-  //     event.preventDefault();
-  //     const updatedInfo = event.target.Birthday.value;
-
-  //     // Fetch Calls
-  //     fetch(`http://localhost:5000/updateUserInfo/${info.id}`, {
-  //       method: "PUT",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({
-  //         email: info.email,
-  //         first_name: info.first_name,
-  //         last_name: info.last_name,
-  //         age: parseInt(info.age),
-  //         birthday: updatedInfo,
-  //         image: info.image,
-  //         bio: info.bio,
-  //       }),
-  //     });
-  //   }
-
   function updateImageName(event) {
     event.preventDefault();
     const updatedInfo = event.target.Image.value;
@@ -148,118 +128,88 @@ export default function UserInfo(props) {
     });
   }
 
-  // async function editAccount(event) {
-  // console.log(input)
-  // fetch(`http://localhost:5000/updateUserInfo${info.id}`, {
-  // method: 'PUT',
-  // headers: { 'Content-Type': 'application/json'},
-  // body: JSON.stringify(info)
-  // })
-  // .then(res => res.json())
-  // .then(data => console.log(data))
-  // }
 
   return (
     <div>
       <div className="input-container">
-        {/* Dummy Image */}
-        {/* {console.log(info.image)}
-                <img src={info.image} alt="hey" width="100" height="100" /> */}
+
         <div>
           <Box direction="row" gap="small" className="Avatar">
-            <Avatar src={info.image} alt="hey" width="200" height="200" />
+            <Avatar src={info.image} alt="hey" size="5xl" className="user-avatar" />
           </Box>
         </div>
 
-        <div className="nameDisplay">
-          {/* First Name Form */}
-          <div className="firstName">
-            <form onSubmit={updateFirstName}>
-              <br />
-              <br />
-              <label for="FirstName">First Name:</label>
-              <br />
-              <input
-                type="text"
-                name="FirstName"
-                defaultValue={info.first_name}
-              />
-              <h1>{info.first_name}</h1>
-              <button className="button">Update</button>
-            </form>
-
-            <br />
-            <br />
-          </div>
-          {/* Last Name Form */}
-          <form onSubmit={updateLastName}>
-            <label for="LastName">Last Name:</label>
-            <br />
-            <input type="text" name="LastName" defaultValue={info.last_name} />
-            <button className="button">Update</button>
-          </form>
-
+        {/* First Name Form */}
+        <div className="user-container">
+        <form onSubmit={updateFirstName}>
           <br />
           <br />
-        </div>
+          <label for="FirstName" className="user-label">First Name:</label>
+          <br />
+          <input
+            type="text"
+            name="FirstName"
+            defaultValue={info.first_name}
+            className="user-input"
+          />
+          <button className="user-button">Update</button>
+        </form>
+
+        <br />
+        <br />
+        {/* Last Name Form */}
+        <form onSubmit={updateLastName}>
+          <label for="LastName" className="user-label">Last Name:</label>
+          <br />
+          <input type="text" name="LastName" defaultValue={info.last_name} className="user-input" />
+          <button className="user-button">Update</button>
+        </form>
+
+        <br />
+        <br />
 
         {/* Age Form */}
         <form onSubmit={updateAgeName}>
-          <label for="Age">Age:</label>
+          <label for="Age" className="user-label">Age:</label>
           <br />
-          <input type="number" name="Age" defaultValue={info.age} />
-          <button className="button">Update</button>
+          <input type="number" name="Age" defaultValue={info.age} className="user-input"/>
+          <button className="user-button">Update</button>
         </form>
         <br />
         <br />
 
         {/* Email Form */}
         <form onSubmit={updateEmailName}>
-          <label for="Email">Email:</label>
+          <label for="Email" className="user-label">Email:</label>
           <br />
-          <input type="email" name="Email" defaultValue={info.email} />
-          <button className="button">Update</button>
+          <input type="email" name="Email" defaultValue={info.email} className="user-input"/>
+          <button className="user-button">Update</button>
         </form>
 
         <br />
         <br />
-        {/* Birthday Form */}
-
-        {/* <form onSubmit={updateBirthdayName}>
-          <label for="Birthday">Birthday:</label>
-          <br /> */}
-        {/* <input type="text" name="Birthday" defaultValue={info.birthday} /> */}
-        {/* <input type="date" name="Birthday" defaultValue={info.birthday} />
-          <button className="button">Update</button>
-        </form> */}
-
-        {/* <input type="image" src={info.image}></input> */}
-
-        {/* <h3>Image:</h3>
-                <img src={info.image} alt="hey" width="50" /> */}
-        {/* <br />
-        <br /> */}
 
         {/* Image Form */}
-        <label for="Image">Image:</label>
         <form onSubmit={updateImageName}>
-          <input type="url" name="Image" defaultValue={info.image} />
+        <label for="Image" className="user-label">Image:</label>
+        <br />
+          <input type="url" name="Image" defaultValue={info.image} className="user-input"/>
 
-          <button className="button">Update</button>
+          <button className="user-button">Update</button>
           <br />
           <br />
         </form>
 
         {/* Bio Form */}
         <form onSubmit={updateBioName}>
-          <label for="Bio">Bio:</label>
+          <label for="Bio" className="user-label">Bio:</label>
           <br />
-          <textarea name="Bio" rows="10" cols="50">
+          <textarea name="Bio" rows="5" cols="50" className="user-input">
             {info.bio}
           </textarea>
           <br />
           <br />
-          <button className="button">Update</button>
+          <button className="user-button">Update</button>
         </form>
       </div>
 
@@ -272,6 +222,7 @@ export default function UserInfo(props) {
                 <h1>{info.image}</h1>
                 <h1>{info.bio}</h1>
             </div> */}
+    </div>
     </div>
   );
 }

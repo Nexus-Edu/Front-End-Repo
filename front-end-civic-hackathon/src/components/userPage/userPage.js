@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Context from "../../context/Context" 
+import Context from "../../context/Context"
 import UserInfo from './UserInfo';
+import "../../post.css"
 
 
 export default function UserPage() {
-  // const [userInfo, setUserInfo] = useState([]);
-
-  // const { info } = useContext(Context)
-  // console.log(info)
 
   const { userInfo } = useContext(Context);
 
@@ -17,35 +14,67 @@ export default function UserPage() {
 
   console.log(currentUser)
 
-// const user = useContext(UserContext)
-
-  // useEffect(() => {
-  //   const getUserInfo = () => {
-  //     fetch('http://localhost:5000/user/1')
-  //       .then(response => response.json())
-  //       .then(data => {
-  //         const info = data;
-  //         console.log(info)
-  //         setUserInfo(info)
-  //       })
-  //   }
-  //   getUserInfo()
-  // }, [])
-
-  // console.log(userInfo)
-
   function renderUserInfo() {
     return currentUser.map(user => {
       return <UserInfo info={user} id={user.id} />
     })
   }
 
+  // console.log(userInfo.id)
+
+  // function RenderPost(props) {
+  //   console.log(props)
+    // let { hashtag, date, message } = info;
+    // console.log(message)
+
+    // date = date.split('');
+    // date = date.slice(0, 10)
+    // date = date.join('')
+
+    // return (
+    //   <div className="post-container">
+    //     {/* Post User's Image */}
+    //     <div>
+    //       <img src={userInfo.image} alt="user_image" className="user-img" />
+    //     </div>
+    //     {/* Post Body */}
+    //     <div className="post-body">
+    //       <h3> {userInfo.username} <em className="date">{date}</em></h3>
+    //       <span className="name">&#64;</span>
+    //       <em className="name">{userInfo.first_name} {userInfo.last_name}</em>
+    //       {/* <hr /> */}
+    //       <blockquote>{message}</blockquote>
+
+    //       <p>{`${hashtag}`}</p>
+    //       {/* <em>posted: {date}</em> */}
+    //     </div>
+    //   </div>
+    // )
+  // }
+
+  function getSpecificUserPosts() {
+    fetch(`http://localhost:5000/board/${userInfo.id}`)
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data)
+         data.map(post => {
+          // return <RenderPost info={post} />
+        })
+      })
+  }
+
+
+
+  
+
 
   return (
     <div>
-      <h1>User Profile</h1>
+      <h1 className="user-title">User Profile</h1>
       {/* <h1>Hello There, {userInfo.username}</h1> */}
       {renderUserInfo()}
+      <br />
+      {getSpecificUserPosts()}
     </div>
   )
 }

@@ -12,6 +12,18 @@ background-color: aliceblue;
     text-decoration-color: white;
 }
 
+.user-title {
+    text-align: center;
+    font-family: monospace;
+    margin-top: .5em;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.user-avatar {
+    border: 5px solid #3F7DA3;
+}
+
 /* Remove birthday */
 /* Remove the space after @ */
 /* Make sure to ge the icon
