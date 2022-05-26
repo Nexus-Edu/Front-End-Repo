@@ -69,17 +69,15 @@ export default function Signup() {
   }
 
   return (
-    <form onSubmit={(e)=>{
-      e.preventDefault()
-    }}>
+    <div className='signupdiv'>
       {/* Card Heading */}
-      <h2>Sign Up:</h2>
+      <h2 className='signup-title'>Sign Up</h2>
 
       {/* {console.log(state)} */}
-      <Box>
+      <Box className='form-box'>
         <Form>
           {/* First name */}
-          <Box border gap="medium" pad="large" width="medium">
+          <Box border gap="medium" pad="large" width="medium" background="white b v  ">
           <FormField htmlFor="User-id" name="enabled" label="FirstName">
             <TextInput type="text" name="first_name" value={state.first_name} placeholder="Enter First Name" className="card-input" onChange={handleChange} />
           </FormField>
@@ -147,7 +145,7 @@ export default function Signup() {
           </Box>
         </Form>
       </Box>
-    </form>
+    </div>
   )
 }
 

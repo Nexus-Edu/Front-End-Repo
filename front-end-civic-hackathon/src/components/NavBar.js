@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Context from "../context/Context";
-import '../App.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import "./userPage/navbar.css"
 //import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { Nav } from 'react-bootstrap';
-
 
 
 
@@ -14,6 +10,44 @@ function NavBar() {
   const { userInfo } = useContext(Context);
 
   return (
+    <div>
+      <nav id="navbar" className="">
+  <div className="nav-wrapper">
+    {/* <!-- Navbar Logo --> */}
+    <div className="logo">
+      {/* <!-- Logo Placeholder for Inlustration --> */}
+      <a href="#home"><i className="nexus-sign"></i> Nexus EDU</a>
+    </div>
+
+    {/* <!-- Navbar Links --> */}
+    <ul id="menu">
+   <li><a href="./discussionBoard">discussionBoard</a></li>
+   <li><a href="/SignUp">signUp</a></li>
+   <li><a href="/Login">Log In</a></li>
+    </ul>
+  </div>
+</nav>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 //     <ul class="nav">
 //       <li>
 //         {/* <a class="nav-link active" aria-current="page" href="#">Active</a> */}
@@ -35,7 +69,10 @@ function NavBar() {
 //   <a class="nav-link disabled">Disabled</a>
 // </li> */}
 //     </ul>
-<Nav
+
+
+
+/* <Nav
   activeKey="/home"
   onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
 >
@@ -53,9 +90,9 @@ function NavBar() {
     <Nav.Link eventKey="">Icon</Nav.Link>
   </Nav.Item>
 
-</Nav>
-  )
-}
-
+</Nav> }*/
+//   )
+// }
+  )}
 
 export default NavBar 
