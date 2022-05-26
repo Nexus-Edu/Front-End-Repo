@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-
+import { Box, Form, FormField, TextInput } from 'grommet';
 import '../../LoginSignUp.css'
 import Context from "../../context/Context"
 import {Link} from "react-router-dom"
+import { RoutedButton as GrommetRoutedButton, Text } from 'grommet';
+
+
 /// will need to import set user here 
 
 export default function Login() {
@@ -57,36 +60,45 @@ export default function Login() {
         <form onSubmit={(e)=>{
             e.preventDefault()
         }}>
-
-
-            <div className="card">
                 {/* Card Heading */}
+
+                <Box align='center' pad='large'>
+                <Form>
+                <Box border gap='medium' pad="large" width="medium">
                 <h2>Login:</h2>
 
                 {/* Username */}
-                <label for="UserName">Username</label>
-
-                <input type="text" value={state.username} name="username" placeholder="Enter Username" className="card-input" onChange={handleChange}/>
-
+                <FormField htmlFor="Username" name='enabled' label='UserName'>
+                <TextInput type="text" value={state.username} name="username" placeholder="Enter Username" className="card-input" onChange={handleChange}/>
+                </FormField>
+                
                 {/* Password */}
-                <label for="password">Password</label>
-
-                <input type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
+                <FormField htmlFor="password" name='enabled' label='Password'>
+                <TextInput type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
+                </FormField>
 
                 {/* Login Button */}
-
-                <Link to="/user">
-                <button onClick={()=>{
-                    logUserIn()
-                    setState({
-                        username: "",
-                        password: ""
-                    })
-                } 
-                }className="card-input">Sign In</button>
-                </Link>
-
-            </div>
+                
+                <Box align="center" pad="large">
+                <GrommetRoutedButton label="Log In" path="/discussionBoard" onClick={() => {
+           logUserIn()
+           setState({
+               username: "",
+               password: ""
+            })
+          }
+          } />
+        </Box>
+            </Box>
+            </Form>
+            </Box>
         </form>
+            
+
+
+
+
+
+
     )
 }
