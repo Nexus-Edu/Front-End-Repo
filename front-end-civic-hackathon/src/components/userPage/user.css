@@ -6,7 +6,6 @@
     margin-left: auto;
     margin-right: auto;
     padding: 50px;
-    border: solid black 2px;
   }
 
 .button {
@@ -15,6 +14,45 @@
     
 }
 
-.nameDisplay {
-    font-size: 50px;
+.user-label {
+    font-size: 1.25em;
+    color: #161925;
+    margin-bottom: .25em;
+    font-family: monospace;
+}
+
+.user-input {
+    margin-right: .5em;
+    border-radius: 20px;
+    padding: 5px;
+    border: 2px solid #3F7DA3;
+    text-align: center;
+    font-family: monospace;
+}
+
+.user-input:active {
+    border: 2px solid #3F7DA3
+}
+
+.user-button {
+    border: 2px solid #3F7DA3;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-style: italic;
+    color: #3F7DA3;
+}
+
+.user-button:hover {
+    font-weight: bold;
+    background-color: #3F7DA3;
+    color: white;
+}
+
+form {
+    text-align: center;
+}
+
+.user-container {
+
 }
