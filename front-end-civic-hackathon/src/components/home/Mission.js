@@ -1,6 +1,7 @@
 // import Mission from "./Mission"
 import { Box, RoutedButton as GrommetRoutedButton, Text } from 'grommet';
- import "./home.css"
+import "./home.css"
+
 function Mission(){
 
     
