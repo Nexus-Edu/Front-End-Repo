@@ -59,7 +59,7 @@ function Post(props) {
 
             <div className="post-container">
                 {/* Post User's Image */}
-                <div>
+                <div className="image-container">
                     <img src={profilePic} alt="user_image" className="user-img" />
                 </div>
                 {/* Post Body */}

@@ -9,7 +9,6 @@ function HomeContainer() {
     return (
         <div>
             <Mission />
-
         </div>
     )
 }
