@@ -68,7 +68,7 @@ function Post(props) {
                     <span className="name">&#64;</span>
                     <em className="name">{userInfo.first_name} {userInfo.last_name}</em>
 {/* <hr /> */}
-                    <blockquote>{message}</blockquote>
+                    <blockquote className="info">{message}</blockquote>
 
                     <p>{`${hashtag}`}</p>
                     {/* <em>posted: {date}</em> */}
