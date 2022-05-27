@@ -71,13 +71,15 @@ export default function Signup() {
   return (
     <div className='signupdiv'>
       {/* Card Heading */}
-      <h2 className='signup-title'>Sign Up</h2>
-
+      
       {/* {console.log(state)} */}
       <Box className='form-box'>
         <Form>
-          {/* First name */}
+      
+         
           <Box border gap="medium" pad="large" width="medium" background="white b v  ">
+          <h2 className='signup-title'>Sign Up</h2>
+           {/* First name */}
           <FormField htmlFor="User-id" name="enabled" label="FirstName">
             <TextInput type="text" name="first_name" value={state.first_name} placeholder="Enter First Name" className="card-input" onChange={handleChange} />
           </FormField>
