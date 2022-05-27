@@ -69,16 +69,33 @@
   margin-left: 10em;
 }
 
+.nav-icon {
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: black;
+  margin-left: 10em;
+  margin-top: .5em;
+}
+
 .nav-user {
   display: flex;
   margin-left: 500px;
 }
 
+.post-ul-container{
+  margin-top:100px;
+}
 
 .post-container {
   display: flex;
   border: .2px solid rgb(177, 171, 171);
   width: 750px;
+  margin:auto;
   /* padding-right: var(--standard-margin); */
   padding: 1em;
 

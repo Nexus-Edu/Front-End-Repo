@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Box, Form, FormField, TextInput } from 'grommet';
 import '../../LoginSignUp.css'
 import Context from "../../context/Context"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { RoutedButton as GrommetRoutedButton, Text } from 'grommet';
 
 
@@ -29,8 +29,9 @@ export default function Login() {
     // console.log(state)
 
 
-    async function logUserIn(){
-        console.log(state)
+    async function logUserIn() {
+        console.log("log in", state)
+        // debugger
         const res = await fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -57,43 +58,47 @@ export default function Login() {
     // console.log(state)
 
     return (
-        <form onSubmit={(e)=>{
+        <form onSubmit={(e) => {
+
+            console.log('fhueoaf')
             e.preventDefault()
         }}>
-                {/* Card Heading */}
+            {/* Card Heading */}
 
-                <Box align='center' pad='large'>
+            <Box align='center' pad='large'>
                 <Form>
-                <Box border gap='medium' pad="large" width="medium">
-                <h2>Login:</h2>
+                    <Box border gap='medium' pad="large" width="medium">
+                        <h2 className="login-form-heading">Login</h2>
 
-                {/* Username */}
-                <FormField htmlFor="Username" name='enabled' label='UserName'>
-                <TextInput type="text" value={state.username} name="username" placeholder="Enter Username" className="card-input" onChange={handleChange}/>
-                </FormField>
-                
-                {/* Password */}
-                <FormField htmlFor="password" name='enabled' label='Password'>
-                <TextInput type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange}/>
-                </FormField>
+                        {/* Username */}
+                        <FormField htmlFor="Username" name='enabled' label='UserName'>
+                            <TextInput type="text" value={state.username} name="username" placeholder="Enter Username" className="card-input" onChange={handleChange} />
+                        </FormField>
 
-                {/* Login Button */}
-                
-                <Box align="center" pad="large">
-                <GrommetRoutedButton label="Log In" path="/discussionBoard" onClick={() => {
-           logUserIn()
-           setState({
-               username: "",
-               password: ""
-            })
-          }
-          } />
-        </Box>
-            </Box>
-            </Form>
+                        {/* Password */}
+                        <FormField htmlFor="password" name='enabled' label='Password'>
+                            <TextInput type="password" name="password" value={state.password} placeholder="Enter Password" className="card-input" onChange={handleChange} />
+                        </FormField>
+
+                        {/* Login Button */}
+
+                        <Box align="center" pad="large">
+                            <GrommetRoutedButton label="Log In" path="/discussionBoard" onClick={(event) => {
+                                event.preventDefault();
+                                console.log(state, "state")
+                                logUserIn()
+                                setState({
+                                    username: state.username,
+                                    password: state.password
+                                })
+                            }
+                            } />
+                        </Box>
+                    </Box>
+                </Form>
             </Box>
         </form>
-            
+
 
 
 

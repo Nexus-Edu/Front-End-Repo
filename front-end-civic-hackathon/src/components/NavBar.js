@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import Context from "../context/Context";
 import "./userPage/navbar.css"
+import "../App.css"
+import { Box, Avatar } from "grommet";
 //import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -8,6 +10,7 @@ import "./userPage/navbar.css"
 function NavBar() {
 
   const { userInfo } = useContext(Context);
+  console.log(userInfo)
 
   return (
     <div>
@@ -24,6 +27,9 @@ function NavBar() {
    <li><a href="/discussionBoard">Discussion Board</a></li>
    <li><a href="/SignUp">Sign Up</a></li>
    <li><a href="/Login">Log In</a></li>
+   <li><a href="/user">User Profile</a></li>
+   {/* <li><Avatar src={userInfo.image} alt="hey" size="medium" className="user-avatar navbar-avatar"/></li> */}
+   {/* <li><img src={userInfo.image} alt="profile_image" className="nav-icon"/></li> */}
     </ul>
   </div>
 </nav>

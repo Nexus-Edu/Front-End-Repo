@@ -25,13 +25,13 @@ function Post(props) {
         date = date.split('');
         date = date.slice(0, 10)
         date = date.join('')
-        console.log(Number(date))
+        // console.log(Number(date))
 
         let currentDate = new Date(); 
         let currentDate1 = new Date(date);
         // console.log(currentDate)
         // console.log(currentDate1)
-        console.log(currentDate - currentDate1)
+        // console.log(currentDate - currentDate1)
 
 
     return (
